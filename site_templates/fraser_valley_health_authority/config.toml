@@ -58,11 +58,11 @@ title = "Operating Permit"
   name = "capacity"
   pretty = "Capacity"
 
-  [[forms.inputs]]
-  type = "checkbox"
-  required = false
-  name = "tobacco"
-  pretty = "Tobacco"
+  # [[forms.inputs]]
+  # type = "checkbox"
+  # required = false
+  # name = "tobacco"
+  # pretty = "Tobacco"
 
   # [[forms.inputs]]
   # type = "select"
@@ -118,10 +118,10 @@ for = "operating_permit.fraser_valley_health_authority"
   from ="request"
   source = "capacity"
 
-  [[schema_mappers.attributes]]
-  name = "tobacco"
-  from ="request"
-  source = "tobacco"
+  # [[schema_mappers.attributes]]
+  # name = "tobacco"
+  # from ="request"
+  # source = "tobacco"
 
   # [[schema_mappers.attributes]]
   # name = "months_of_operation"

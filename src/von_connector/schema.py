@@ -74,16 +74,20 @@ class SchemaManager():
                 self.__log('issuer', issuer)
                 self.__log('schema', schema)
 
-                # Check if schema exists on ledger
-                schema_json = await issuer.get_schema(
-                    SchemaKey(
-                        origin_did=issuer.did,
-                        name=schema['name'],
-                        version=schema['version']
+                try:
+                    schema_json = await issuer.get_schema(
+                        SchemaKey(
+                            origin_did=issuer.did,
+                            name=schema['name'],
+                            version=schema['version']
+                        )
                     )
-                )
+                except Exception as e:
+                    schema_json = "{}"
 
-                # If not, send the schema to the ledger, then get result
+                    # Check if schema exists on ledger
+
+                    # If not, send the schema to the ledger, then get result
                 if not json.loads(schema_json):
                     schema_json = await issuer.send_schema(json.dumps(schema))
 
@@ -97,7 +101,7 @@ class SchemaManager():
                 #     schema['seqNo'], issuer.did)
                 # if not json.loads(claim_def_json):
 
-                claim_def_json = await issuer.send_cred_def(schema_json)
+                claim_def_json = await issuer.send_cred_def(schema_json, revocation=False)
 
                 claim_def = json.loads(claim_def_json)
                 self.__log_json('claim_def:', claim_def)
@@ -210,7 +214,7 @@ class SchemaManager():
                 logger.warn(
                     "schema_manager.submit_claim() >>> issuer create claim")
 
-                (cred_json, _cred_revoc_id, _rev_reg_delta_json) = await issuer.create_cred(
+                (cred_json, _cred_revoc_id) = await issuer.create_cred(
                     claim_offer_json,
                     credential_request,
                     claim)

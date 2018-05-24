@@ -57,10 +57,17 @@ class ProofRequestManager():
                 proof_response = response.json()
                 proof = proof_response['proof']
 
+                logger.debug(
+                    "\n============================================================================\n" +
+                    "Proof:\n" +
+                    "----------------------------------------------------------------------------\n" +
+                    "{0}\n".format(json.dumps(proof, indent=2)) +
+                    "============================================================================\n")
+
                 parsed_proof = {}
                 for attr in proof['requested_proof']['revealed_attrs']:
                     parsed_proof[attr] = \
-                        proof['requested_proof']['revealed_attrs'][attr][1]
+                        proof['requested_proof']['revealed_attrs'][attr]["raw"]
 
                 verified = await verifier.verify_proof(
                     self.proof_request,
