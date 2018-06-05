@@ -12,7 +12,7 @@
 # Make some modifications to the python-s2i image to support
 # dynamic creation of issuer services based on the container's
 # deployment configuration.
-FROM bcgovimages/von-image:py36-1.0rc2-s2i 
+FROM bcgovimages/von-image:py36-1.0rc3-s2i 
 
 USER root
 

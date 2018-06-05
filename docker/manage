@@ -118,6 +118,8 @@ configureEnvironment () {
     exit 1
   fi
 
+  export GUNICORN_CMD_ARGS="--timeout 300"
+
   export LEDGER_URL=${LEDGER_URL:-http://$DOCKERHOST:9000}
   export INDY_WALLET_SEED=${seed%?}
   export TOB_INDY_SEED=${TOB_INDY_SEED}

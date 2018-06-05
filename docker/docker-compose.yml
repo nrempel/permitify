@@ -5,6 +5,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -37,6 +38,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -69,6 +71,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -101,6 +104,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -133,6 +137,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -165,6 +170,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'
@@ -204,6 +210,7 @@ services:
     image: permitify
     environment:
       PYTHON_ENV: development
+      GUNICORN_CMD_ARGS: ${GUNICORN_CMD_ARGS}
       THE_ORG_BOOK_API_URL: ${THE_ORG_BOOK_API_URL}
       THE_ORG_BOOK_APP_URL: ${THE_ORG_BOOK_APP_URL}
       DISCONNECTED: '${DISCONNECTED-false}'

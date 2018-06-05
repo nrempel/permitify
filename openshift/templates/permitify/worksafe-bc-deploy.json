@@ -65,9 +65,7 @@
         }
       },
       "spec": {
-        "accessModes": [
-          "ReadWriteOnce"
-        ],
+        "accessModes": ["ReadWriteOnce"],
         "resources": {
           "requests": {
             "storage": "${PERSISTENT_VOLUME_SIZE}"
@@ -93,9 +91,7 @@
             "type": "ImageChange",
             "imageChangeParams": {
               "automatic": true,
-              "containerNames": [
-                "${NAME}"
-              ],
+              "containerNames": ["${NAME}"],
               "from": {
                 "kind": "ImageStreamTag",
                 "namespace": "${IMAGE_NAMESPACE}",
@@ -242,6 +238,10 @@
                   {
                     "name": "WEB_CONCURRENCY",
                     "value": "${WEB_CONCURRENCY}"
+                  },
+                  {
+                    "name": "GUNICORN_CMD_ARGS",
+                    "value": "${GUNICORN_CMD_ARGS}"
                   }
                 ],
                 "resources": {
@@ -260,7 +260,8 @@
     {
       "name": "NAME",
       "displayName": "Name",
-      "description": "The name assigned to all of the OpenShift resources associated to the server instance.",
+      "description":
+        "The name assigned to all of the OpenShift resources associated to the server instance.",
       "required": true,
       "value": "worksafe-bc"
     },
@@ -275,7 +276,8 @@
       "name": "IMAGE_NAMESPACE",
       "displayName": "Image Namespace",
       "required": true,
-      "description": "The namespace of the OpenShift project containing the imagestream for the application.",
+      "description":
+        "The namespace of the OpenShift project containing the imagestream for the application.",
       "value": "devex-von-permitify-tools"
     },
     {
@@ -288,7 +290,8 @@
     {
       "name": "APPLICATION_DOMAIN",
       "displayName": "Application Hostname",
-      "description": "The exposed hostname that will route to the Django service, if left blank a value will be defaulted.",
+      "description":
+        "The exposed hostname that will route to the Django service, if left blank a value will be defaulted.",
       "value": ""
     },
     {
@@ -320,7 +323,8 @@
     {
       "name": "PERSISTENT_VOLUME_SIZE",
       "displayName": "Persistent Volume Size",
-      "description": "The size of the persistent volume , e.g. 512Mi, 1Gi, 2Gi.",
+      "description":
+        "The size of the persistent volume , e.g. 512Mi, 1Gi, 2Gi.",
       "required": true,
       "value": "1Gi"
     },
@@ -334,7 +338,8 @@
     {
       "name": "TEMPLATE_NAME",
       "displayName": "Template Name",
-      "description": "The name of the site template to use for the application instance.",
+      "description":
+        "The name of the site template to use for the application instance.",
       "required": true,
       "value": "worksafe_bc"
     },
@@ -357,19 +362,22 @@
       "displayName": "Application url",
       "description": "This service's url.",
       "required": true,
-      "value": "https://worksafe-bc-devex-von-permitify-dev.pathfinder.gov.bc.ca"
+      "value":
+        "https://worksafe-bc-devex-von-permitify-dev.pathfinder.gov.bc.ca"
     },
     {
       "name": "INDY_WALLET_SEED",
       "displayName": "Indy Wallet Seed",
-      "description": "The seed that the indy wallet uses to generate predictable keys.",
+      "description":
+        "The seed that the indy wallet uses to generate predictable keys.",
       "required": true,
       "value": "worksafe_bc_dev_0000000000000000"
     },
     {
       "name": "TOB_INDY_SEED",
       "displayName": "TheOrgBook Indy Wallet Seed",
-      "description": "The seed that TheOrgBook uses to generate predictable keys.",
+      "description":
+        "The seed that TheOrgBook uses to generate predictable keys.",
       "required": true,
       "value": "the_org_book_dev_000000000000000"
     },
@@ -390,30 +398,42 @@
     {
       "name": "INDY_WALLET_TYPE",
       "displayName": "Indy Wallet Type",
-      "description": "The wallet type to use; remote (enterprise) or virtual (local), defaults to virtual.",
+      "description":
+        "The wallet type to use; remote (enterprise) or virtual (local), defaults to virtual.",
       "required": true,
       "value": "virtual"
     },
     {
       "name": "INDY_WALLET_URL",
       "displayName": "Indy Wallet URL",
-      "description": "The URL to the wallet provider.  Used only when using a remote (enterprise) wallet.",
+      "description":
+        "The URL to the wallet provider.  Used only when using a remote (enterprise) wallet.",
       "required": true,
       "value": "http://wallet:8080/api/v1/"
     },
     {
       "name": "WALLET_DEPLOYMENT_NAME",
       "displayName": "Wallet Deployment Name",
-      "description": "The name associated to the wallet deployment resources.  In particular, this is used to wire up the credentials associated to the wallet.",
+      "description":
+        "The name associated to the wallet deployment resources.  In particular, this is used to wire up the credentials associated to the wallet.",
       "required": true,
       "value": "wallet"
     },
     {
       "name": "WEB_CONCURRENCY",
       "displayName": "Web Concurrency",
-      "description": "This setting controlls the number of gunicorn processes that get started.  If left blank the system will calculate the value.  Set to 1 for applications that don't work well with multiple processes, otherwise leave it blank.",
+      "description":
+        "This setting controlls the number of gunicorn processes that get started.  If left blank the system will calculate the value.  Set to 1 for applications that don't work well with multiple processes, otherwise leave it blank.",
       "required": false,
       "value": "1"
+    },
+    {
+      "name": "GUNICORN_CMD_ARGS",
+      "displayName": "Gunicorn Command Args",
+      "description":
+        "This setting allows you to set gunicorn command arguments.",
+      "required": false,
+      "value": "--timeout 300"
     }
   ]
 }
