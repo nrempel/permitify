@@ -1,13 +1,19 @@
 #FROM vonx-base
 FROM bcgovimages/von-image:py36-1.6-ew-11
 
+# ADD /Users/nbrempel/Projects/von/permitify/docker/tmp/von-x von-x
+
+
 WORKDIR $HOME
+
 
 # `ADD --chown=` is not available in OpenShift yet.
 # ADD --chown=indy:indy . $HOME
 ADD . $HOME
 
 USER root
+
+RUN pip install --upgrade -e ./docker/tmp/von-x
 
 # Add the indy uesr to the root group.
 RUN usermod -a -G root indy
