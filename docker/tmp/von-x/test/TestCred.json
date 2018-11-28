@@ -1,7 +1,0 @@
-{
-  "schema": "test.schema",
-  "attributes": {
-    "attr1": "Test Cred",
-    "attr2": "Test Value"
-  }
-}
