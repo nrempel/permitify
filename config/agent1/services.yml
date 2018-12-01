@@ -1,5 +1,5 @@
 issuers:
-  bcreg:
+  agent1:
     logo_path: ''
     name: BC Corporate Registry
     abbreviation: BCReg
@@ -7,11 +7,12 @@ issuers:
       ministries-organizations/ministries/citizens-services/bc-registries-online-services"
     email: bcreg.test.issuer@example.ca
     url: $APPLICATION_URL_INCORP
+    endpoint: http://$DOCKERHOST:5000
 
     connection:
       type: Agent2Agent
-      api_url: $TOB_API_URL
-      sign_target: false
+      did: A9Rsuu7FNquw8Ne2Smu5Nr
+      agent: agent2
 
     wallet:
       name: ${POSTGRESQL_WALLET_NAME:-bcreg_issuer}

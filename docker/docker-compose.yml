@@ -10,9 +10,9 @@ services:
       WEB_HOST_NAME: ${WEB_HOST_NAME:-0.0.0.0}
       WEB_HOST_PORT: ${WEB_HOST_PORT:-8080}
       WEB_HOST_TLS: ${WEB_HOST_TLS:-off}
-      BCREG_AGENT_HOST: ${BCREG_AGENT_HOST:-bcreg}
+      BCREG_AGENT_HOST: ${BCREG_AGENT_HOST:-agent1}
       BCREG_AGENT_PORT: ${BCREG_AGENT_PORT:-8000}
-      CITY_SURREY_AGENT_HOST: ${CITY_SURREY_AGENT_HOST:-city-surrey}
+      CITY_SURREY_AGENT_HOST: ${CITY_SURREY_AGENT_HOST:-agent2}
       CITY_SURREY_AGENT_PORT: ${CITY_SURREY_AGENT_PORT:-8000}
     links:
       - agent1
@@ -33,6 +33,7 @@ services:
       context: ..
       dockerfile: docker/agent/Dockerfile
     environment:
+      DOCKERHOST: ${DOCKERHOST}
       APPLICATION_URL: ${APPLICATION_URL:-http://localhost:5000}
       CONFIG_ROOT: ../config/agent1
       ENVIRONMENT: ${ENVIRONMENT:-default}
@@ -65,6 +66,7 @@ services:
       context: ..
       dockerfile: docker/agent/Dockerfile
     environment:
+      DOCKERHOST: ${DOCKERHOST}
       APPLICATION_URL: ${APPLICATION_URL:-http://localhost:5000}
       CONFIG_ROOT: ../config/agent2
       ENVIRONMENT: ${ENVIRONMENT:-default}

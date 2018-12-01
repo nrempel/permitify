@@ -1,15 +1,16 @@
 issuers:
-  city-surrey:
+  agent2:
     logo_path: ''
     name: City of Surrey
     abbreviation: SUR
     email: surrey.test.issuer@example.ca
     url: $APPLICATION_URL_INCORP
+    endpoint: http://$DOCKERHOST:5000/agent2
 
     connection:
       type: Agent2Agent
-      api_url: $TOB_API_URL
-      sign_target: false
+      did: 6qnvgJtqwK44D8LFYnV5Yf
+      agent: agent1 # no longer required (set in endpoint instead)
 
     wallet:
       name: ${POSTGRESQL_WALLET_NAME:-surrey_issuer}
